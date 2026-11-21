@@ -173,8 +173,11 @@ header.sc .tb{max-height:0;opacity:0}
 .thumb em{position:absolute;right:10px;bottom:8px;font-style:normal;font-size:.72rem;font-weight:700;color:#fff;background:rgba(0,0,0,.35);padding:2px 9px;border-radius:99px}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
 .tm{align-items:center;text-align:center}.tm .row{justify-content:center}
-.ph{position:relative;width:104px;height:104px;border-radius:50%;border:2px dashed var(--g2);background:var(--gl);color:var(--g);display:grid;place-items:center;overflow:hidden;font-size:.7rem;font-weight:600}
-.ph img{width:100%;height:100%;object-fit:cover}.ph svg{width:34px;height:34px;display:block;margin:0 auto 2px}
+.ph{position:relative;width:110px;height:110px;border-radius:50%;border:3px solid var(--g2);background:var(--gl);color:var(--g);display:grid;place-items:center;overflow:hidden;font-size:.7rem;font-weight:600;box-shadow:0 4px 14px -4px rgba(15,122,74,.35)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph svg{width:34px;height:34px;display:block;margin:0 auto 2px}
+.ph-placeholder{display:grid;place-items:center;gap:4px;color:var(--g);text-align:center}
+.ph-placeholder svg{width:32px;height:32px}
 .bdg{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;font-size:.74rem;font-weight:700;padding:5px 12px;border-radius:99px}
 .bdg svg{width:14px;height:14px}
 .split{display:grid;grid-template-columns:.85fr 1.15fr;border-radius:20px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line)}
@@ -244,20 +247,44 @@ html{overflow-x:hidden}
 #gMat .track{align-items:flex-start}
 .mimg{cursor:pointer}
 .tg .c,.card.open .tg .o{display:none}.card.open .tg .c{display:inline}
-.pl{display:grid;gap:8px;max-height:0;overflow:hidden;transition:max-height .5s ease}
-.card.open .pl{max-height:700px;margin-top:4px}
-.pi{display:grid;gap:6px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font-size:.84rem;line-height:1.4}
-.pr{display:flex;justify-content:space-between;align-items:center;gap:8px}.pr b{color:var(--g);white-space:nowrap}
-.pi .btn{padding:6px 10px;font-size:.76rem}
-/* ===== V7 : photos et détails par appareil ===== */
-.pi{grid-template-columns:84px minmax(0,1fr);align-items:start}
-.pp{width:84px;height:64px;border-radius:8px;background:linear-gradient(135deg,#0f7a4a,#5fd68f);display:grid;place-items:center;overflow:hidden}
-.pp img{width:100%;height:100%;object-fit:cover}.pp svg{width:74px;height:50px}
-.nm{display:block;margin-bottom:4px;font-size:.88rem}
+.pl{display:grid;gap:12px;max-height:0;overflow:hidden;transition:max-height .55s ease;padding:4px 0}
+.card.open .pl{max-height:1200px;margin-top:10px}
+.pi{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:.84rem;line-height:1.4;box-shadow:0 4px 14px -8px rgba(15,122,74,.2);transition:border-color .2s,box-shadow .2s}
+.pi:hover{border-color:var(--g2);box-shadow:0 8px 22px -10px rgba(15,122,74,.35)}
+.pr{display:flex;justify-content:space-between;align-items:center;gap:8px}.pr b{color:var(--g);white-space:nowrap;font-size:.95rem}
+.pi .btn{padding:7px 12px;font-size:.78rem}
+.pp{width:100px;height:76px;border-radius:10px;background:linear-gradient(135deg,#0f7a4a,#5fd68f);display:grid;place-items:center;overflow:hidden}
+.pp img{width:100%;height:100%;object-fit:cover;display:block}.pp svg{width:80px;height:54px}
+.nm{display:block;margin-bottom:6px;font-size:.9rem;font-weight:700}
 .sp{list-style:none;display:grid;gap:3px;font-size:.76rem;color:var(--dim)}
 .sp li{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed var(--line);padding-top:3px}
 .sp span{font-weight:600;color:var(--ink)}.sp em{font-style:normal;text-align:right}
-.pi .pr{grid-column:1/-1}
+.pi .pr{grid-column:1/-1;margin-top:4px;padding-top:8px;border-top:1px solid var(--line)}
+.universe-label{font-size:.78rem;font-weight:600;color:var(--g);margin:4px 0 2px;display:flex;align-items:center;gap:6px}
+.universe-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--g2)}
+/* Logos partenaires */
+.plogo{display:inline-flex;align-items:center;justify-content:center;font:700 .78rem 'Figtree',sans-serif;padding:6px 14px;border-radius:8px;letter-spacing:.02em;box-shadow:0 2px 8px -2px rgba(0,0,0,.15)}
+.plogo.ggl{background:#fff;color:#4285f4;border:1.5px solid #e0e0e0}
+.plogo.ibm{background:#054ada;color:#fff}
+.plogo.crs{background:#0056d2;color:#fff}
+.plogo.myg{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff}
+/* Modal matériel large */
+.mbox-wide{max-width:920px;width:100%}
+.mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:12px;max-height:65vh;overflow:auto;padding:4px}
+.mat-card{background:var(--soft);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.mat-card:hover{border-color:var(--g2);box-shadow:0 12px 28px -14px rgba(15,122,74,.4)}
+.mat-card .mpic{height:140px;background:linear-gradient(135deg,#0f7a4a,#5fd68f);display:grid;place-items:center;overflow:hidden}
+.mat-card .mpic img{width:100%;height:100%;object-fit:cover}
+.mat-card .mbody{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.mat-card h4{font-size:.95rem;margin:0}
+.mat-card .specs{list-style:none;font-size:.76rem;color:var(--dim);display:grid;gap:2px}
+.mat-card .specs li{display:flex;justify-content:space-between;gap:6px;border-top:1px dashed var(--line);padding-top:2px}
+.mat-card .specs span{font-weight:600;color:var(--ink)}
+.mat-card .foot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+/* Photos dans les cartes services / sites */
+.card-img{height:120px;margin:-22px -22px 8px;border-radius:14px 14px 0 0;overflow:hidden;background:linear-gradient(135deg,#0f7a4a,#5fd68f)}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.mimg img{width:100%;height:100%;object-fit:cover}
 </style>
 </head>
 <body>
@@ -293,7 +320,14 @@ html{overflow-x:hidden}
 </div></section>
 
 <section id="formations" class="alt"><div class="wrap">
-  <div class="sec-h"><h2>Formations</h2><p>Sessions en présentiel à Etoudi, adaptées aux particuliers et aux entreprises. Les tarifs sont indicatifs.</p></div>
+  <div class="sec-h"><h2>Formations</h2><p>Sessions en présentiel à Etoudi, adaptées aux particuliers et aux entreprises. Les tarifs sont indicatifs. Formations alignées sur les standards Google, IBM et Coursera.</p></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin:-8px 0 20px;align-items:center">
+    <span style="font-size:.8rem;color:var(--dim);font-weight:600">Partenaires :</span>
+    <span class="plogo ggl" title="Google">Google</span>
+    <span class="plogo ibm" title="IBM">IBM</span>
+    <span class="plogo crs" title="Coursera">Coursera</span>
+    <span class="plogo myg" title="MEYGO">MEYGO Certifié</span>
+  </div>
   <div class="tabs" id="tabsF"></div>
   <div class="grid" id="gForm"></div>
 </div></section>
@@ -392,6 +426,65 @@ html{overflow-x:hidden}
   <div class="row"><button class="btn" id="pgo" type="button">Confirmer mon paiement</button><button class="btn out" id="pcl" type="button">Fermer</button></div>
 </div></div>
 
+<!-- Modal inscription formation -->
+<div class="modal" id="modForm" role="dialog" aria-modal="true" aria-labelledby="mtForm">
+  <div class="mbox" style="max-width:480px">
+    <h3 id="mtForm">S’inscrire à la formation</h3>
+    <p class="note" id="formTitle" style="margin-bottom:8px"></p>
+    <div class="partners" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+      <span style="font-size:.78rem;color:var(--dim)">Partenaires & certifications :</span>
+      <span class="plogo ggl" title="Google">Google</span>
+      <span class="plogo ibm" title="IBM">IBM</span>
+      <span class="plogo crs" title="Coursera">Coursera</span>
+      <span class="plogo myg" title="MEYGO">MEYGO</span>
+    </div>
+    <form id="fInscription" style="display:grid;gap:12px">
+      <div class="f2">
+        <label>Nom complet<input name="nom" required autocomplete="name"></label>
+        <label>Téléphone<input name="tel" type="tel" required autocomplete="tel" placeholder="6XX XX XX XX"></label>
+      </div>
+      <label>Email<input name="email" type="email" autocomplete="email" placeholder="optionnel"></label>
+      <label>Session souhaitée
+        <select name="session" required>
+          <option value="">Choisir une session…</option>
+          <option>Semaine prochaine (matin)</option>
+          <option>Semaine prochaine (après-midi)</option>
+          <option>Dans 2 semaines</option>
+          <option>Week-end</option>
+          <option>À définir ensemble</option>
+        </select>
+      </label>
+      <label>Niveau actuel
+        <select name="niveau">
+          <option>Débutant</option>
+          <option>Intermédiaire</option>
+          <option>Avancé</option>
+        </select>
+      </label>
+      <label>Message (facultatif)<textarea name="msg" style="min-height:70px" placeholder="Objectifs, questions…"></textarea></label>
+      <div class="row">
+        <button class="btn" type="submit">Valider mon inscription</button>
+        <button class="btn out" type="button" id="fcl">Annuler</button>
+      </div>
+      <p class="note" style="margin:0">Vous recevrez une confirmation sous 24 h. Places limitées.</p>
+    </form>
+  </div>
+</div>
+
+<!-- Modal univers matériel (fenêtre) -->
+<div class="modal" id="modMat" role="dialog" aria-modal="true" aria-labelledby="mtMat">
+  <div class="mbox mbox-wide">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+      <div>
+        <h3 id="mtMat">Univers de machines</h3>
+        <p class="note" id="matSub" style="margin:4px 0 0"></p>
+      </div>
+      <button class="btn out sm" type="button" id="matCl">Fermer</button>
+    </div>
+    <div id="matGrid" class="mat-grid"></div>
+  </div>
+</div>
+
 <script>
 var WA="237690841946",MAIL="emmanuelleyougo2003@gmail.com";
 // Numéros de réception Mobile Money (à ajuster si différents)
@@ -421,13 +514,44 @@ var forms=[
 ["Bases de données","MySQL et PostgreSQL en pratique","Administration, sauvegardes et optimisation des requêtes.",65000]];
 var cats=["Tout"].concat(forms.map(function(f){return f[0]}).filter(function(v,i,a){return a.indexOf(v)===i}));
 var curF="Tout";
+var FORM_IMG={
+  "Bureautique":"https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500&h=280&fit=crop",
+  "Gestion de projet":"https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=280&fit=crop",
+  "Programmation":"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=280&fit=crop",
+  "Bases de données":"https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&h=280&fit=crop"
+};
 function renderF(){
  $("#tabsF").innerHTML=cats.map(function(c){return '<button class="tab" aria-pressed="'+(c===curF)+'" data-c="'+c+'">'+c+'</button>'}).join("");
- $("#gForm").innerHTML=forms.filter(function(f){return curF==="Tout"||f[0]===curF}).map(function(f){
-  return '<div class="card"><span class="tag">'+f[0]+'</span><h3>'+f[1]+'</h3><p>'+f[2]+'</p><div class="foot"><span class="price">'+fmt(f[3])+'</span><a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite m’inscrire à la formation : "+f[1]+" ("+fmt(f[3])+").")+'">S’inscrire</a></div></div>'}).join("");
+ $("#gForm").innerHTML=forms.filter(function(f){return curF==="Tout"||f[0]===curF}).map(function(f,i){
+  var img=FORM_IMG[f[0]]||FORM_IMG["Programmation"];
+  return '<div class="card"><div class="card-img"><img src="'+img+'" alt="'+esc(f[1])+'" loading="lazy"></div><span class="tag">'+f[0]+'</span><h3>'+f[1]+'</h3><p>'+f[2]+'</p><div class="foot"><span class="price">'+fmt(f[3])+'</span><button class="btn sm" type="button" data-form="'+i+'">S’inscrire</button></div></div>'}).join("");
 }
 $("#tabsF").addEventListener("click",function(e){var t=e.target.closest(".tab");if(!t)return;curF=t.dataset.c;renderF()});
 renderF();
+
+// Inscription formation (formulaire sans afficher WhatsApp)
+var curFormIdx=0;
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-form]");
+  if(b){
+    curFormIdx=+b.dataset.form;
+    var f=forms.filter(function(x){return curF==="Tout"||x[0]===curF})[curFormIdx]||forms[curFormIdx];
+    $("#formTitle").textContent=f[1]+" — "+fmt(f[3]);
+    $("#modForm").classList.add("on");
+    if(L==="en")trAll($("#modForm"));
+  }
+  if(e.target.id==="fcl"||e.target.id==="modForm")$("#modForm").classList.remove("on");
+});
+$("#fInscription").addEventListener("submit",function(e){
+  e.preventDefault();
+  var fd=new FormData(e.target);
+  var f=forms.filter(function(x){return curF==="Tout"||x[0]===curF})[curFormIdx]||forms[curFormIdx];
+  var t="Inscription formation\nFormation : "+f[1]+" ("+fmt(f[3])+")\nNom : "+fd.get("nom")+"\nTéléphone : "+fd.get("tel")+"\nEmail : "+(fd.get("email")||"-")+"\nSession : "+fd.get("session")+"\nNiveau : "+fd.get("niveau")+"\nMessage : "+(fd.get("msg")||"-");
+  window.open(wa(t),"_blank");
+  $("#modForm").classList.remove("on");
+  e.target.reset();
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")$("#modForm").classList.remove("on")});
 
 var erp=[
 ["MEYGO ERP — Gestion commerciale","Ventes, achats, facturation et suivi de trésorerie.",true],
@@ -453,11 +577,11 @@ var mat=[
 $("#gMat").innerHTML=mat.map(function(m){return '<div class="card"><span class="tag">Matériel</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">dès '+fmt(m[2])+'</span><a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite un devis pour : "+m[0])+'">Demander un devis</a></div></div>'}).join("");
 
 var mt=[
-["Dépannage sur site","Diagnostic et réparation à votre bureau ou à votre domicile.","dès 10 000 FCFA"],
-["Maintenance préventive","Nettoyage, mises à jour et sauvegardes régulières.","dès 25 000 FCFA"],
-["Contrat annuel entreprise","Visites planifiées et intervention prioritaire.","sur devis"],
-["Sécurité et antivirus","Protection du parc, pare-feu et sensibilisation du personnel.","sur devis"]];
-$("#gMaint").innerHTML=mt.map(function(m){return '<div class="card"><span class="tag">Maintenance</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">'+m[2]+'</span><a class="btn sm" href="#reservation">Réserver</a></div></div>'}).join("");
+["Dépannage sur site","Diagnostic et réparation à votre bureau ou à votre domicile.","dès 10 000 FCFA","https://images.unsplash.com/photo-1581092918056-0c4c3faad7a1?w=500&h=280&fit=crop"],
+["Maintenance préventive","Nettoyage, mises à jour et sauvegardes régulières.","dès 25 000 FCFA","https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=280&fit=crop"],
+["Contrat annuel entreprise","Visites planifiées et intervention prioritaire.","sur devis","https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=280&fit=crop"],
+["Sécurité et antivirus","Protection du parc, pare-feu et sensibilisation du personnel.","sur devis","https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=500&h=280&fit=crop"]];
+$("#gMaint").innerHTML=mt.map(function(m){return '<div class="card"><div class="card-img"><img src="'+m[3]+'" alt="'+esc(m[0])+'" loading="lazy"></div><span class="tag">Maintenance</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">'+m[2]+'</span><a class="btn sm" href="#reservation">Réserver</a></div></div>'}).join("");
 
 var team=[
 ["PDG","Marie Emmanuelle YOUGO","MEY",["Ingénieure génie logiciel","Architecte logiciel"]],
@@ -502,6 +626,7 @@ var T=[
 ["Bureautique, gestion de projet, programmation, bases de données","Office software, project management, programming, databases"],
 ["Maintenance","Maintenance"],["Interventions sur site et contrats annuels","On-site visits and yearly contracts"],
 ["Nos services","Our services"],["Un seul interlocuteur pour tous vos besoins informatiques.","One point of contact for all your IT needs."],
+["Sessions en présentiel à Etoudi, adaptées aux particuliers et aux entreprises. Les tarifs sont indicatifs. Formations alignées sur les standards Google, IBM et Coursera.","In-person sessions in Etoudi for individuals and companies. Prices are indicative. Trainings aligned with Google, IBM and Coursera standards."],
 ["Sessions en présentiel à Etoudi, adaptées aux particuliers et aux entreprises. Les tarifs sont indicatifs.","In-person sessions in Etoudi for individuals and companies. Prices are indicative."],
 ["Logiciels ERP","ERP software"],["Des outils de gestion pensés pour les PME camerounaises. Demandez une démonstration avant de décider.","Management tools designed for Cameroonian SMEs. Ask for a demo before you decide."],
 ["Sites web réalisés","Websites we built"],["Quelques réalisations en ligne. Ouvrez-les pour juger de la qualité.","A few live projects. Open them and judge the quality yourself."],
@@ -622,7 +747,15 @@ function car(sel,html,auto){var g=$(sel);g.className="car";g.innerHTML='<button 
  g.querySelector(".p").onclick=function(){go(-1)};g.querySelector(".n").onclick=function(){go(1)};
  if(auto&&!matchMedia("(prefers-reduced-motion:reduce)").matches){g.addEventListener("mouseenter",function(){hold=true});g.addEventListener("mouseleave",function(){hold=false});g.addEventListener("focusin",function(){hold=true});setInterval(function(){if(!hold&&!document.hidden)go(1)},3500)}}
 
-$("#gServices").innerHTML=services.map(function(x,k){return '<div class="card"><span class="ic">'+ico(["code","globe","cap","box","wrench","cal"][k])+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'}).join("");
+var SVC_IMG=[
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=500&h=280&fit=crop"
+];
+$("#gServices").innerHTML=services.map(function(x,k){return '<div class="card"><div class="card-img"><img src="'+SVC_IMG[k]+'" alt="'+esc(x[1])+'" loading="lazy"></div><span class="ic">'+ico(["code","globe","cap","box","wrench","cal"][k])+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'}).join("");
 var SC={erp:[["chk","Connexion","Accès sécurisé avec les droits de chaque utilisateur."],["box","Tableau de bord","Ventes, stock et trésorerie visibles en un coup d’œil."],["code","Nouvelle opération","Saisie rapide d’une vente ou d’un achat en quelques clics."],["mail","Facture générée","La facture est créée, numérotée et prête à envoyer."],["award","Rapports","Export Excel et PDF des résultats du mois."]],
  site:[["globe","Page d’accueil","Un design clair et adapté au téléphone."],["cap","Présentation","Services et réalisations mises en avant."],["cal","Navigation fluide","Menu simple, sections fluides, rendu rapide."],["phone","Contact","Message ou commande directe via WhatsApp."],["award","Mise en ligne","Site publié, sécurisé et référencé."]]};
 /* Pour une vraie vidéo, ajoutez video:"lien.mp4" dans l’objet du projet */
@@ -631,13 +764,27 @@ function pcard(tag,t,d,sc,url,video){DEMOS.push({t:t,sc:sc,url:url,video:video})
  return '<div class="card"><div class="thumb" data-demo="'+i+'" role="button" tabindex="0" aria-label="'+t+'"><b>'+ico("play")+'</b><em>Démo 15 s</em></div><span class="tag">'+tag+'</span><h3>'+t+'</h3><p>'+d+'</p><div class="foot"><button class="btn sm" data-demo="'+i+'" type="button">Voir la démo</button>'+(url&&url!=="#"?'<a class="btn out sm" target="_blank" rel="noopener" href="'+url+'">Visiter le site</a>':'<a class="btn out sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite une démonstration en direct : "+t)+'">Démo en direct</a>')+'</div></div>'}
 car("#gErp",erp.map(function(e){return pcard("ERP",e[0],e[1],SC.erp)}).join(""),true);
 M["Lien à ajouter"]="Link to be added";
-function scard(e){var u=e[2],ok=u&&u!=="#",host=ok?u.replace(/^https?:\/\//,"").replace(/\/.*$/,""):"Lien à ajouter";
- return '<div class="card"><a class="thumb" '+(ok?'href="'+u+'" target="_blank" rel="noopener"':'')+' aria-label="'+e[0]+'"><b>'+ico("globe")+'</b><em>'+host+'</em></a><span class="tag">Site web</span><h3>'+e[0]+'</h3><p>'+e[1]+'</p><div class="foot">'+(ok?'<a class="btn sm" target="_blank" rel="noopener" href="'+u+'">Visiter le site</a>':'<span class="note">Lien à ajouter</span>')+'</div></div>'}
+var SITE_IMG=[
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=280&fit=crop",
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=280&fit=crop"
+];
+function scard(e,idx){var u=e[2],ok=u&&u!=="#",host=ok?u.replace(/^https?:\/\//,"").replace(/\/.*$/,""):"Lien à ajouter";
+ var img=SITE_IMG[idx%SITE_IMG.length];
+ return '<div class="card"><a class="card-img" '+(ok?'href="'+u+'" target="_blank" rel="noopener"':'')+' aria-label="'+e[0]+'" style="display:block"><img src="'+img+'" alt="'+esc(e[0])+'" loading="lazy"></a><span class="tag">Site web</span><h3>'+e[0]+'</h3><p>'+e[1]+'</p><div class="foot">'+(ok?'<a class="btn sm" target="_blank" rel="noopener" href="'+u+'">Visiter le site</a>':'<span class="note">Lien à ajouter</span>')+'</div></div>'}
 car("#gSites",sites.map(scard).join(""),true);
 car("#gMat",mat.map(function(m){return '<div class="card"><span class="tag">Matériel</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">dès '+fmt(m[2])+'</span><a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite un devis pour : "+m[0])+'">Demander un devis</a></div></div>'}).join(""),false);
-/* Équipe : renseignez name, photo ("photos/emma.jpg" ou lien) et advisor */
-var TEAM=[{role:"PDG",name:"Marie Emmanuelle YOUGO",prof:"Ingénieure génie logiciel",photo:"",advisor:true},{role:"Chargé de maintenance",name:"À compléter",prof:"Technicien supérieur",photo:"",advisor:true},{role:"Chargé de clientèle",name:"À compléter",prof:"Gestionnaire de projet",photo:"",advisor:true},{role:"Ingénieur réseau",name:"À compléter",prof:"Réseaux et sécurité",photo:"",advisor:true},{role:"Community manager",name:"À compléter",prof:"Communication digitale",photo:"",advisor:true}];
-car("#gTeam",TEAM.map(function(m){return '<div class="card tm"><div class="ph">'+(m.photo?'<img src="'+m.photo+'" alt="'+esc(m.name)+'">':'<div>'+ico("user")+'Photo</div>')+'</div>'+(m.advisor?'<span class="bdg">'+ico("award")+'Conseiller certifié</span>':'')+'<h3>'+m.name+'</h3><p style="flex:none"><b>'+m.role+'</b></p><div class="chips"><span class="tag">'+m.prof+'</span></div><button class="btn sm" data-pay type="button">Consulter</button></div>'}).join(""),true);
+/* Équipe : pour chaque membre, mettez l’URL ou le chemin de la photo dans "photo"
+   Exemple local : "photos/emma.jpg"   |   Exemple en ligne : "https://..."
+   Laissez "" pour afficher le placeholder « Photo » cliquable. */
+var TEAM=[
+  {role:"PDG",name:"Marie Emmanuelle YOUGO",prof:"Ingénieure génie logiciel",photo:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=faces",advisor:true},
+  {role:"Chargé de maintenance",name:"À compléter",prof:"Technicien supérieur",photo:"https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=faces",advisor:true},
+  {role:"Chargé de clientèle",name:"À compléter",prof:"Gestionnaire de projet",photo:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=faces",advisor:true},
+  {role:"Ingénieur réseau",name:"À compléter",prof:"Réseaux et sécurité",photo:"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=faces",advisor:true},
+  {role:"Community manager",name:"À compléter",prof:"Communication digitale",photo:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=faces",advisor:true}
+];
+car("#gTeam",TEAM.map(function(m){return '<div class="card tm"><div class="ph">'+(m.photo?'<img src="'+m.photo+'" alt="'+esc(m.name)+'" loading="lazy">':'<div class="ph-placeholder">'+ico("user")+'<span>Photo</span></div>')+'</div>'+(m.advisor?'<span class="bdg">'+ico("award")+'Conseiller certifié</span>':'')+'<h3>'+m.name+'</h3><p style="flex:none"><b>'+m.role+'</b></p><div class="chips"><span class="tag">'+m.prof+'</span></div><button class="btn sm" data-pay type="button">Consulter</button></div>'}).join(""),true);
 var SIDE={book:["Confirmation rapide sur WhatsApp","Démonstration gratuite des logiciels","Réservation sans engagement"],dev:["Proposition et devis détaillés","Réponse rapide à votre demande","Accompagnement après la livraison"]};
 document.querySelectorAll(".side").forEach(function(e){var u=document.createElement("ul");u.className="chk";u.innerHTML=SIDE[e.dataset.k].map(function(x){return "<li>"+ico("chk")+"<span>"+x+"</span></li>"}).join("");e.appendChild(u)});
 
@@ -718,22 +865,65 @@ var MI=[
 [["Onduleur 650 VA","650 VA UPS",35000],["Onduleur 1 200 VA","1 200 VA UPS",65000],["Stabilisateur de tension 1 kVA","1 kVA voltage stabilizer",30000]],
 [["Clavier et souris sans fil","Wireless keyboard and mouse",12000],["Casque avec micro","Headset with microphone",10000],["Disque dur externe 1 To","1 TB external hard drive",45000],["Clé USB 64 Go","64 GB USB drive",8000],["Hub USB-C 7-en-1","7-in-1 USB-C hub",18000]]];
 M["Voir les modèles"]="View models";M["Masquer les modèles"]="Hide models";M["Commander"]="Order";
+M["Voir les modèles disponibles"]="View available models";M["Univers de machines similaires disponibles"]="Universe of similar machines available";
+M["S’inscrire à la formation"]="Enroll in the training";M["Partenaires & certifications :"]="Partners & certifications:";
+M["Session souhaitée"]="Preferred session";M["Choisir une session…"]="Choose a session…";
+M["Semaine prochaine (matin)"]="Next week (morning)";M["Semaine prochaine (après-midi)"]="Next week (afternoon)";
+M["Dans 2 semaines"]="In 2 weeks";M["Week-end"]="Weekend";M["À définir ensemble"]="To be defined together";
+M["Niveau actuel"]="Current level";M["Débutant"]="Beginner";M["Intermédiaire"]="Intermediate";M["Avancé"]="Advanced";
+M["Message (facultatif)"]="Message (optional)";M["Objectifs, questions…"]="Goals, questions…";
+M["Valider mon inscription"]="Confirm my enrollment";M["Annuler"]="Cancel";
+M["Vous recevrez une confirmation sous 24 h. Places limitées."]="You will receive a confirmation within 24 h. Limited seats.";
+M["optionnel"]="optional";
 MI.forEach(function(c){c.forEach(function(i){M[i[0]]=i[1]})});
 car("#gMat",mat.map(function(m,i){return '<div class="card">'+SV(IMG[MK[i]])+'<span class="tag">Matériel</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">dès '+fmt(m[2])+'</span><button class="btn sm tg" type="button" aria-expanded="false"><span class="o">Voir les modèles</span><span class="c">Masquer les modèles</span></button></div><div class="pl">'+MI[i].map(function(x){return '<div class="pi"><span>'+x[0]+'</span><div class="pr"><b>'+fmt(x[2])+'</b><a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite commander : "+x[0]+" ("+fmt(x[2])+")")+'">Commander</a></div></div>'}).join("")+'</div></div>'}).join(""),false);
 document.addEventListener("click",function(e){var t=e.target.closest(".mimg,.tg");if(!t)return;var c=t.closest(".card");if(!c||!c.querySelector(".pl"))return;var o=c.classList.toggle("open");var b=c.querySelector(".tg");if(b)b.setAttribute("aria-expanded",o)});
 /* ===== V7 : chaque appareil = [nom FR, nom EN, prix, photo, caractéristiques "Libellé:valeur|..."] ===== */
 /* Pour la photo : photo:"image.jpg" (4e élément). Vide = illustration par défaut */
+/* Photos réelles (Unsplash). Remplacez par vos propres photos si besoin : 4e élément = URL ou chemin local */
 var MD=[
-[["Portable bureautique 15,6″","Office laptop 15.6″",250000,"","Écran:15,6″ HD|Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 256 Go|Usage:Bureautique"],["Portable professionnel 14″","Business laptop 14″",450000,"","Écran:14″ Full HD|Processeur:Intel Core i7|Mémoire:16 Go|Stockage:SSD 512 Go|Usage:Pro et développement"],["Portable reconditionné","Refurbished laptop",150000,"","Écran:14″ HD|Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 240 Go|État:Testé et nettoyé"]],
-[["PC de bureau","Desktop PC",220000,"","Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 256 Go|Format:Tour"],["PC complet avec écran 22″","Complete PC with 22″ screen",300000,"","Écran:22″ Full HD|Processeur:Intel Core i5|Mémoire:8 Go|Inclus:Clavier et souris"],["Station de travail","Workstation",480000,"","Processeur:Intel Core i7|Mémoire:16 Go|Stockage:SSD 512 Go|Usage:Conception et calcul"]],
-[["Imprimante jet d’encre multifonction","Multifunction inkjet printer",65000,"","Fonctions:Impression, copie, scan|Format:A4|Connexion:USB et Wi-Fi"],["Imprimante laser monochrome","Monochrome laser printer",95000,"","Type:Laser noir et blanc|Format:A4|Connexion:USB et Ethernet"],["Imprimante laser couleur","Color laser printer",180000,"","Type:Laser couleur|Format:A4|Connexion:USB, Ethernet, Wi-Fi"],["Scanner de documents A4","A4 document scanner",85000,"","Format:A4|Résolution:600 dpi|Connexion:USB"]],
-[["Routeur Wi-Fi double bande","Dual-band Wi-Fi router",25000,"","Bande:2,4 et 5 GHz|Ports:4 Ethernet|Vitesse:1 200 Mbps"],["Switch réseau 8 ports","8-port network switch",22000,"","Ports:8 Gigabit|Gestion:Non administrable|Pose:Bureau ou mur"],["Point d’accès Wi-Fi plafonnier","Ceiling Wi-Fi access point",45000,"","Bande:2,4 et 5 GHz|Alimentation:PoE|Pose:Plafond"],["Câblage réseau","Network cabling",1500,"","Type:Câble RJ45 cat. 6|Tarif:Au mètre posé|Inclus:Pose et test"]],
-[["Onduleur 650 VA","650 VA UPS",35000,"","Puissance:650 VA|Prises:2|Usage:PC et box internet"],["Onduleur 1 200 VA","1 200 VA UPS",65000,"","Puissance:1 200 VA|Prises:4|Usage:Poste complet et réseau"],["Stabilisateur de tension 1 kVA","1 kVA voltage stabilizer",30000,"","Puissance:1 kVA|Entrée:140 à 260 V|Usage:Bureau et électroménager"]],
-[["Clavier et souris sans fil","Wireless keyboard and mouse",12000,"","Connexion:Sans fil 2,4 GHz|Disposition:AZERTY|Alimentation:Piles"],["Casque avec micro","Headset with microphone",10000,"","Connexion:USB ou jack 3,5 mm|Micro:Intégré|Usage:Visio et formation"],["Disque dur externe 1 To","1 TB external hard drive",45000,"","Capacité:1 To|Connexion:USB 3.0|Format:2,5″"],["Clé USB 64 Go","64 GB USB drive",8000,"","Capacité:64 Go|Connexion:USB 3.0"],["Hub USB-C 7-en-1","7-in-1 USB-C hub",18000,"","Ports:HDMI, USB 3.0, carte SD|Charge:Power Delivery|Connexion:USB-C"]]];
+[["Portable bureautique 15,6″","Office laptop 15.6″",250000,"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop","Écran:15,6″ HD|Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 256 Go|Usage:Bureautique"],["Portable professionnel 14″","Business laptop 14″",450000,"https://images.unsplash.com/photo-1525547717930-4d3468c88c6b?w=400&h=300&fit=crop","Écran:14″ Full HD|Processeur:Intel Core i7|Mémoire:16 Go|Stockage:SSD 512 Go|Usage:Pro et développement"],["Portable reconditionné","Refurbished laptop",150000,"https://images.unsplash.com/photo-1588872657578-7b1a5cfd2e18?w=400&h=300&fit=crop","Écran:14″ HD|Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 240 Go|État:Testé et nettoyé"]],
+[["PC de bureau","Desktop PC",220000,"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop","Processeur:Intel Core i5|Mémoire:8 Go|Stockage:SSD 256 Go|Format:Tour"],["PC complet avec écran 22″","Complete PC with 22″ screen",300000,"https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop","Écran:22″ Full HD|Processeur:Intel Core i5|Mémoire:8 Go|Inclus:Clavier et souris"],["Station de travail","Workstation",480000,"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=300&fit=crop","Processeur:Intel Core i7|Mémoire:16 Go|Stockage:SSD 512 Go|Usage:Conception et calcul"]],
+[["Imprimante jet d’encre multifonction","Multifunction inkjet printer",65000,"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=300&fit=crop","Fonctions:Impression, copie, scan|Format:A4|Connexion:USB et Wi-Fi"],["Imprimante laser monochrome","Monochrome laser printer",95000,"https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop","Type:Laser noir et blanc|Format:A4|Connexion:USB et Ethernet"],["Imprimante laser couleur","Color laser printer",180000,"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=300&fit=crop","Type:Laser couleur|Format:A4|Connexion:USB, Ethernet, Wi-Fi"],["Scanner de documents A4","A4 document scanner",85000,"https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop","Format:A4|Résolution:600 dpi|Connexion:USB"]],
+[["Routeur Wi-Fi double bande","Dual-band Wi-Fi router",25000,"https://images.unsplash.com/photo-1606904827626-f5e8a9e4f3a0?w=400&h=300&fit=crop","Bande:2,4 et 5 GHz|Ports:4 Ethernet|Vitesse:1 200 Mbps"],["Switch réseau 8 ports","8-port network switch",22000,"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop","Ports:8 Gigabit|Gestion:Non administrable|Pose:Bureau ou mur"],["Point d’accès Wi-Fi plafonnier","Ceiling Wi-Fi access point",45000,"https://images.unsplash.com/photo-1544197150-b99a580bb7a2?w=400&h=300&fit=crop","Bande:2,4 et 5 GHz|Alimentation:PoE|Pose:Plafond"],["Câblage réseau","Network cabling",1500,"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop","Type:Câble RJ45 cat. 6|Tarif:Au mètre posé|Inclus:Pose et test"]],
+[["Onduleur 650 VA","650 VA UPS",35000,"https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=300&fit=crop","Puissance:650 VA|Prises:2|Usage:PC et box internet"],["Onduleur 1 200 VA","1 200 VA UPS",65000,"https://images.unsplash.com/photo-1606313564200-e75d5e304eec?w=400&h=300&fit=crop","Puissance:1 200 VA|Prises:4|Usage:Poste complet et réseau"],["Stabilisateur de tension 1 kVA","1 kVA voltage stabilizer",30000,"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop","Puissance:1 kVA|Entrée:140 à 260 V|Usage:Bureau et électroménager"]],
+[["Clavier et souris sans fil","Wireless keyboard and mouse",12000,"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop","Connexion:Sans fil 2,4 GHz|Disposition:AZERTY|Alimentation:Piles"],["Casque avec micro","Headset with microphone",10000,"https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=300&fit=crop","Connexion:USB ou jack 3,5 mm|Micro:Intégré|Usage:Visio et formation"],["Disque dur externe 1 To","1 TB external hard drive",45000,"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop","Capacité:1 To|Connexion:USB 3.0|Format:2,5″"],["Clé USB 64 Go","64 GB USB drive",8000,"https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=400&h=300&fit=crop","Capacité:64 Go|Connexion:USB 3.0"],["Hub USB-C 7-en-1","7-in-1 USB-C hub",18000,"https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=300&fit=crop","Ports:HDMI, USB 3.0, carte SD|Charge:Power Delivery|Connexion:USB-C"]]];
 [["Écran","Screen"],["Processeur","Processor"],["Mémoire","Memory"],["Stockage","Storage"],["Usage","Use"],["État","Condition"],["Format","Form"],["Inclus","Included"],["Fonctions","Functions"],["Connexion","Connection"],["Type","Type"],["Résolution","Resolution"],["Bande","Band"],["Vitesse","Speed"],["Gestion","Management"],["Pose","Mounting"],["Alimentation","Power"],["Tarif","Pricing"],["Puissance","Power rating"],["Prises","Outlets"],["Entrée","Input"],["Disposition","Layout"],["Micro","Microphone"],["Capacité","Capacity"],["Charge","Charging"],
 ["Bureautique","Office work"],["Pro et développement","Professional and development"],["Testé et nettoyé","Tested and cleaned"],["Tour","Tower"],["Clavier et souris","Keyboard and mouse"],["Conception et calcul","Design and computing"],["Impression, copie, scan","Print, copy, scan"],["USB et Wi-Fi","USB and Wi-Fi"],["Laser noir et blanc","Black and white laser"],["USB et Ethernet","USB and Ethernet"],["USB, Ethernet, Wi-Fi","USB, Ethernet, Wi-Fi"],["2,4 et 5 GHz","2.4 and 5 GHz"],["Non administrable","Unmanaged"],["Bureau ou mur","Desk or wall"],["Plafond","Ceiling"],["Câble RJ45 cat. 6","Cat. 6 RJ45 cable"],["Au mètre posé","Per meter installed"],["Pose et test","Installation and testing"],["PC et box internet","PC and internet box"],["Poste complet et réseau","Full workstation and network"],["140 à 260 V","140 to 260 V"],["Bureau et électroménager","Office and appliances"],["Sans fil 2,4 GHz","2.4 GHz wireless"],["Piles","Batteries"],["USB ou jack 3,5 mm","USB or 3.5 mm jack"],["Intégré","Built-in"],["Visio et formation","Video calls and training"],["HDMI, USB 3.0, carte SD","HDMI, USB 3.0, SD card"]].forEach(function(p){M[p[0]]=p[1]});
 MD.forEach(function(c){c.forEach(function(i){M[i[0]]=i[1]})});
-car("#gMat",mat.map(function(m,i){return '<div class="card">'+SV(IMG[MK[i]])+'<span class="tag">Matériel</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="foot"><span class="price">dès '+fmt(m[2])+'</span><button class="btn sm tg" type="button" aria-expanded="false"><span class="o">Voir les modèles</span><span class="c">Masquer les modèles</span></button></div><div class="pl">'+MD[i].map(function(x){return '<div class="pi"><div class="pp">'+(x[3]?'<img src="'+x[3]+'" alt="'+esc(x[0])+'" loading="lazy">':'<svg viewBox="0 0 120 80">'+IMG[MK[i]]+'</svg>')+'</div><div><b class="nm">'+x[0]+'</b><ul class="sp">'+x[4].split("|").map(function(s){var k=s.indexOf(":");return '<li><span>'+s.slice(0,k)+'</span><em>'+s.slice(k+1)+'</em></li>'}).join("")+'</ul></div><div class="pr"><b>'+fmt(x[2])+'</b><a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite commander : "+x[0]+" ("+fmt(x[2])+")")+'">Commander</a></div></div>'}).join("")+'</div></div>'}).join(""),false);
+M["Explorer les modèles"]="Explore models";M["Univers de machines"]="Machine universe";M["Modèles disponibles dans cette catégorie"]="Models available in this category";
+/* Cartes matériel : ouverture d’une fenêtre (modal) au lieu du déroulé */
+car("#gMat",mat.map(function(m,i){
+  var photo=MD[i]&&MD[i][0]&&MD[i][0][3]?MD[i][0][3]:"";
+  return '<div class="card">'+
+    (photo?'<div class="mimg" style="cursor:pointer" data-mat="'+i+'"><img src="'+photo+'" alt="'+esc(m[0])+'" loading="lazy"></div>':SV(IMG[MK[i]]))+
+    '<span class="tag">Matériel</span><h3>'+m[0]+'</h3><p>'+m[1]+'</p>'+
+    '<div class="foot"><span class="price">dès '+fmt(m[2])+'</span>'+
+    '<button class="btn sm" type="button" data-mat="'+i+'">Explorer les modèles</button></div></div>';
+}).join(""),true);
+
+function openMat(i){
+  var cat=mat[i], list=MD[i]||[];
+  $("#mtMat").textContent=cat[0];
+  $("#matSub").textContent=(L==="en"?"Models available in this category":"Modèles disponibles dans cette catégorie")+" — dès "+fmt(cat[2]);
+  $("#matGrid").innerHTML=list.map(function(x){
+    var specs=x[4].split("|").map(function(s){var k=s.indexOf(":");return '<li><span>'+s.slice(0,k)+'</span><em>'+s.slice(k+1)+'</em></li>'}).join("");
+    return '<div class="mat-card">'+
+      '<div class="mpic">'+(x[3]?'<img src="'+x[3]+'" alt="'+esc(x[0])+'" loading="lazy">':'<svg viewBox="0 0 120 80">'+IMG[MK[i]]+'</svg>')+'</div>'+
+      '<div class="mbody"><h4>'+x[0]+'</h4><ul class="specs">'+specs+'</ul>'+
+      '<div class="foot"><b class="price">'+fmt(x[2])+'</b>'+
+      '<a class="btn sm" target="_blank" rel="noopener" href="'+wa("Bonjour MEYGO Technologies, je souhaite commander : "+x[0]+" ("+fmt(x[2])+")")+'">Commander</a></div></div></div>';
+  }).join("");
+  $("#modMat").classList.add("on");
+  if(L==="en")trAll($("#modMat"));
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-mat]");
+  if(b)openMat(+b.dataset.mat);
+  if(e.target.id==="matCl"||e.target.id==="modMat")$("#modMat").classList.remove("on");
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")$("#modMat").classList.remove("on")});
+
 document.body.style.overflow="hidden";
 setTimeout(function(){var sp=$("#splash");sp.classList.add("out");document.body.style.overflow="";setTimeout(function(){sp.remove()},700)},2700);
 </script>
